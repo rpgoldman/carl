@@ -4,6 +4,8 @@ configure_everything()
 file(GLOB_RECURSE carl_sources "*.cpp")
 add_new_libraries(carl-arith "${PROJECT_VERSION_LIB}" "${carl_sources}" "resources")
 
+include_directories(/carl/build/resources/include)
+
 set(BOOST_LIBS_SHARED "Boost_system_SHARED")
 set(BOOST_LIBS_STATIC "Boost_system_STATIC")
 target_include_dirs_from(carl-arith-objects SYSTEM PUBLIC carl-common-shared carl-logging-shared EIGEN3 GMPXX_SHARED GMP_SHARED ${BOOST_LIBS_SHARED} ${CMAKE_DL_LIBS} pthread)
